@@ -1442,7 +1442,13 @@ class GrafanaFinalScanner:
             if acao == '*':
                 result['wildcard'] = True
                 result['severity'] = 'MEDIUM'
-                result['message'] = 'CORS wildcard allowed - any origin can access resources'
+                try:
+                    return results
+                except KeyboardInterrupt:
+                    # Return partial results immediately so caller can persist them
+                    self.log('[!] Scan interrupted by user - returning partial results', 'WARN')
+                    return results
+
             elif acao == evil_origin:
                 result['reflection'] = True
                 result['severity'] = 'MEDIUM'
@@ -1789,13 +1795,18 @@ class GrafanaFinalScanner:
             
             results = []
             for i, url in enumerate(urls, 1):
-                print(f"\n{Colors.BOLD}[Target {i}/{len(urls)}]{Colors.RESET}")
-                result = self.scan_target(url)
-                results.append(result)
-                
-                if i < len(urls) and not self._rate_limited:
-                    time.sleep(1)  # Polite delay between targets
-            
+                try:
+                    print(f"\n{Colors.BOLD}[Target {i}/{len(urls)}]{Colors.RESET}")
+                    result = self.scan_target(url)
+                    results.append(result)
+
+                    if i < len(urls) and not self._rate_limited:
+                        time.sleep(1)  # Polite delay between targets
+                except KeyboardInterrupt:
+                    # Return partial results immediately so caller can persist them
+                    self.log('[!] Scan interrupted by user - returning partial results', 'WARN')
+                    return results
+
             return results
             
         except FileNotFoundError:
@@ -2168,10 +2179,18 @@ def main():
         
         # Generate report
         scanner.generate_report(results, args.output)
-        
     except KeyboardInterrupt:
-        print(f"\n\n{Colors.WARN}[!] Scan interrupted by user{Colors.RESET}")
-        sys.exit(0)
+        if results:
+            print(f"\n\n{Colors.WARN}[!] Scan interrupted by user - generating partial report{Colors.RESET}")
+            try:
+                scanner.generate_report(results, args.output)
+            except Exception:
+                # Best-effort: if report generation fails, still exit gracefully
+                pass
+            sys.exit(0)
+        else:
+            print(f"\n\n{Colors.WARN}[!] Scan interrupted by user{Colors.RESET}")
+            sys.exit(0)
     except Exception as e:
         print(f"\n{Colors.CRITICAL}[!] Fatal error: {str(e)}{Colors.RESET}")
         if args.verbose:
