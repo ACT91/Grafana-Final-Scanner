@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 Grafana Security Scan Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0a0e27; color: #e0e0e0; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; background: #1a1a2e; padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 30px; border-radius: 10px; margin-bottom: 30px; border: 1px solid #2a2a4a; }
+        .header h1 { color: #ff4444; font-size: 28px; }
+        .header p { color: #888; margin-top: 10px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .stat-card { background: #1a1a2e; padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #2a2a4a; }
+        .stat-card h3 { font-size: 14px; color: #888; margin-bottom: 10px; }
+        .stat-card .value { font-size: 32px; font-weight: bold; }
+        .stat-card .critical { color: #dc3545; }
+        .stat-card .safe { color: #28a745; }
+        table { width: 100%; border-collapse: collapse; background: #1a1a2e; border-radius: 8px; overflow: hidden; border: 1px solid #2a2a4a; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #2a2a4a; }
+        th { background: #16213e; color: #888; font-size: 12px; text-transform: uppercase; }
+        tr:hover { background: #1f1f35; }
+        a { color: #0dcaf0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code { background: #2a2a4a; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+        .footer { text-align: center; margin-top: 30px; color: #555; font-size: 12px; }
+        .severity-dist { display: flex; gap: 10px; margin: 20px 0; }
+        .severity-bar { height: 20px; border-radius: 3px; min-width: 4px; }
+        h2 { margin-top: 20px; margin-bottom: 15px; color: #0dcaf0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Grafana Security Scan Report</h1>
+            <p>Generated: 2026-05-19 05:17:02 | Targets: 296</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Targets Scanned</h3>
+                <div class="value safe">296</div>
+            </div>
+            <div class="stat-card">
+                <h3>Vulnerable</h3>
+                <div class="value critical">68</div>
+            </div>
+            <div class="stat-card">
+                <h3>Secure</h3>
+                <div class="value safe">228</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Vulnerabilities</h3>
+                <div class="value critical">98</div>
+            </div>
+        </div>
+
+        <h2 style="margin-bottom: 15px;">Severity Distribution</h2>
+        <div class="severity-dist">
+            <div><strong>🔴 CRITICAL:</strong> 71</div>
+            <div><strong>🟠 HIGH:</strong> 0</div>
+            <div><strong>🟡 MEDIUM:</strong> 27</div>
+            <div><strong>🔵 LOW:</strong> 0</div>
+        </div>
+        
+        <h2 style="margin-bottom: 15px;">Vulnerability Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Target</th>
+                    <th>Version</th>
+                    <th>Severity</th>
+                    <th>CVE ID</th>
+                    <th>Description</th>
+                    <th>Test URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        <td><a href="https://acorns.com" target="_blank">https://acorns.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.acorns.com | Open redirect to external domain: www.acorns.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://acorns.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://acorns.com" target="_blank">https://acorns.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 301). Potential auth bypass vector.</td>
+                        <td><a href="https://acorns.com/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://acorns.com" target="_blank">https://acorns.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://acorns.com/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.pixpay.fr" target="_blank">https://www.pixpay.fr</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.pixpay.fr//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.pixpay.fr" target="_blank">https://www.pixpay.fr</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 301). Potential auth bypass vector.</td>
+                        <td><a href="https://www.pixpay.fr/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.pixpay.fr" target="_blank">https://www.pixpay.fr</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://www.pixpay.fr/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.afterpay.com" target="_blank">https://portal.afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 302). Potential auth bypass vector.</td>
+                        <td><a href="https://portal.afterpay.com/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.afterpay.com" target="_blank">https://portal.afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://portal.afterpay.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.afterpay.com" target="_blank">https://portal.afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://portal.afterpay.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.afterpay.com" target="_blank">https://portal.afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://portal.afterpay.com/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://afterpay.com" target="_blank">https://afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.afterpay.com | Open redirect to external domain: www.afterpay.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://afterpay.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://afterpay.com" target="_blank">https://afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 301). Potential auth bypass vector.</td>
+                        <td><a href="https://afterpay.com/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://afterpay.com" target="_blank">https://afterpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://afterpay.com/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clearpay.co.uk" target="_blank">https://clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.clearpay.co.uk | Open redirect to external domain: www.clearpay.co.uk | Open redirect via login redirect parameter</td>
+                        <td><a href="https://clearpay.co.uk//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clearpay.co.uk" target="_blank">https://clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 301). Potential auth bypass vector.</td>
+                        <td><a href="https://clearpay.co.uk/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clearpay.co.uk" target="_blank">https://clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://clearpay.co.uk/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clearpay.com" target="_blank">https://clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.clearpay.com | Open redirect to external domain: www.clearpay.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://clearpay.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clearpay.com" target="_blank">https://clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 301). Potential auth bypass vector.</td>
+                        <td><a href="https://clearpay.com/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clearpay.com" target="_blank">https://clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://clearpay.com/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.com" target="_blank">https://portal.clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://portal.clearpay.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.com" target="_blank">https://portal.clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 302). Potential auth bypass vector.</td>
+                        <td><a href="https://portal.clearpay.com/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.com" target="_blank">https://portal.clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://portal.clearpay.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.com" target="_blank">https://portal.clearpay.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://portal.clearpay.com/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.co.uk" target="_blank">https://portal.clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2024-8118</code></td>
+                        <td>OAuth endpoint accessible: /api/login/oauth2 (HTTP 302). Potential auth bypass vector.</td>
+                        <td><a href="https://portal.clearpay.co.uk/api/login/oauth2" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.co.uk" target="_blank">https://portal.clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://portal.clearpay.co.uk//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.co.uk" target="_blank">https://portal.clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://portal.clearpay.co.uk/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://portal.clearpay.co.uk" target="_blank">https://portal.clearpay.co.uk</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-27358</code></td>
+                        <td>Unauthenticated POST to snapshots - DoS vector</td>
+                        <td><a href="https://portal.clearpay.co.uk/api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://marketplace.atlassian.com" target="_blank">https://marketplace.atlassian.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://marketplace.atlassian.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.arlo.com" target="_blank">https://www.arlo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.arlo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://app.asana.com" target="_blank">https://app.asana.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://app.asana.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://app.asana.com" target="_blank">https://app.asana.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://app.asana.com/dashboard/snapshot/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://admin.atlassian.com" target="_blank">https://admin.atlassian.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://admin.atlassian.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://trello.com" target="_blank">https://trello.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://trello.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://manage.cic-bug-bounty.auth0app.com" target="_blank">https://manage.cic-bug-bounty.auth0app.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://manage.cic-bug-bounty.auth0app.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://dashboard.fga.dev" target="_blank">https://dashboard.fga.dev</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://dashboard.fga.dev//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://jwt.io" target="_blank">https://jwt.io</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.jwt.io | Open redirect to external domain: www.jwt.io | Open redirect via login redirect parameter</td>
+                        <td><a href="https://jwt.io//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://backblaze.com" target="_blank">https://backblaze.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.backblaze.com | Open redirect to external domain: www.backblaze.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://backblaze.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://pro.coinmarketcap.com" target="_blank">https://pro.coinmarketcap.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://pro.coinmarketcap.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://coinmarketcap.com" target="_blank">https://coinmarketcap.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://coinmarketcap.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://binance.tr" target="_blank">https://binance.tr</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.binance.tr | Open redirect via login redirect parameter</td>
+                        <td><a href="https://binance.tr//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://app.bitgo.com" target="_blank">https://app.bitgo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://app.bitgo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://app.bitgo-test.com" target="_blank">https://app.bitgo-test.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://app.bitgo-test.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.bitpanda.com" target="_blank">https://www.bitpanda.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.bitpanda.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://api.blockchain.info" target="_blank">https://api.blockchain.info</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: blockchain.info | Open redirect to external domain: blockchain.info | Open redirect via login redirect parameter</td>
+                        <td><a href="https://api.blockchain.info//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://taxify.eu" target="_blank">https://taxify.eu</a></td>
+                        <td>2024.11.0</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: bolt.eu | Open redirect to external domain: bolt.eu | Open redirect via login redirect parameter</td>
+                        <td><a href="https://taxify.eu//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://taxify.eu" target="_blank">https://taxify.eu</a></td>
+                        <td>2024.11.0</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://taxify.eu/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://bolt.eu" target="_blank">https://bolt.eu</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://bolt.eu//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://tracker.bugcrowd.com" target="_blank">https://tracker.bugcrowd.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://tracker.bugcrowd.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://bullish.com" target="_blank">https://bullish.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.bullish.com | Open redirect to external domain: www.bullish.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://bullish.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://investor.bullish.com" target="_blank">https://investor.bullish.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://investor.bullish.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://thinkglobalhealth.org" target="_blank">https://thinkglobalhealth.org</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.thinkglobalhealth.org | Open redirect to external domain: www.thinkglobalhealth.org | Open redirect via login redirect parameter</td>
+                        <td><a href="https://thinkglobalhealth.org//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.wien.gv.at" target="_blank">https://www.wien.gv.at</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.wien.gv.at//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://wien.at" target="_blank">https://wien.at</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.wien.gv.at | Open redirect to external domain: www.wien.gv.at | Open redirect via login redirect parameter</td>
+                        <td><a href="https://wien.at//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://stadtwien-my.sharepoint.com" target="_blank">https://stadtwien-my.sharepoint.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://stadtwien-my.sharepoint.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://teach.classdojo.com" target="_blank">https://teach.classdojo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://teach.classdojo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://student.classdojo.com" target="_blank">https://student.classdojo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://student.classdojo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.classdojo.com" target="_blank">https://www.classdojo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.classdojo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://home.classdojo.com" target="_blank">https://home.classdojo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://home.classdojo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://clickhou.se" target="_blank">https://clickhou.se</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://clickhou.se/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://console.delltechnologies.com" target="_blank">https://console.delltechnologies.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.dell.com | Open redirect to external domain: www.dell.com</td>
+                        <td><a href="https://console.delltechnologies.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://go.elementor.com" target="_blank">https://go.elementor.com</a></td>
+                        <td>2025.9.1</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: elementor.com | Open redirect to external domain: elementor.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://go.elementor.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://translate.elementor.com" target="_blank">https://translate.elementor.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://translate.elementor.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://translate.elementor.com" target="_blank">https://translate.elementor.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 1/50 test IDs accessible. Sample accessible IDs: [1]</td>
+                        <td><a href="https://translate.elementor.com/api/snapshots/shared/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://send2.co" target="_blank">https://send2.co</a></td>
+                        <td>2025.9.1</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: elementor.com | Open redirect to external domain: elementor.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://send2.co//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://casino.partycasino.com" target="_blank">https://casino.partycasino.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.partycasino.com | Open redirect to external domain: www.partycasino.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://casino.partycasino.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://casino.bwin.com" target="_blank">https://casino.bwin.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.bwin.com | Open redirect to external domain: www.bwin.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://casino.bwin.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://casino.sportingbet.com" target="_blank">https://casino.sportingbet.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.sportingbet.com | Open redirect to external domain: www.sportingbet.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://casino.sportingbet.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.galabingo.com" target="_blank">https://www.galabingo.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.galabingo.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.galacasino.com" target="_blank">https://www.galacasino.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.galacasino.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://projects.epam.com" target="_blank">https://projects.epam.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: project.epam.com | Open redirect to external domain: project.epam.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://projects.epam.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.etoro.com" target="_blank">https://www.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://www.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://streams.etoro.com" target="_blank">https://streams.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://streams.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://streams.etoro.com" target="_blank">https://streams.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://streams.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://r.etoro.com" target="_blank">https://r.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://r.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://r.etoro.com" target="_blank">https://r.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://r.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://partners.etoro.com" target="_blank">https://partners.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: por.etoro.com | Open redirect to external domain: por.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://partners.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://kyc.etoro.com" target="_blank">https://kyc.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: etoro.com | Open redirect to external domain: etoro.com</td>
+                        <td><a href="https://kyc.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://kyc-src.etoro.com" target="_blank">https://kyc-src.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://kyc-src.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://kyc-src.etoro.com" target="_blank">https://kyc-src.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://kyc-src.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://cashier-src.etoro.com" target="_blank">https://cashier-src.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://cashier-src.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://cashier-src.etoro.com" target="_blank">https://cashier-src.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://cashier-src.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://billing.etoro.com" target="_blank">https://billing.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://billing.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://billing.etoro.com" target="_blank">https://billing.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://billing.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://templates.etoro.com" target="_blank">https://templates.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://templates.etoro.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://templates.etoro.com" target="_blank">https://templates.etoro.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://templates.etoro.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://etorox.com" target="_blank">https://etorox.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.etoro.com | Open redirect to external domain: www.etoro.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://etorox.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://etorox.com" target="_blank">https://etorox.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://etorox.com/api/snapshots/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://help.etsy.com" target="_blank">https://help.etsy.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://help.etsy.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://community.etsy.com" target="_blank">https://community.etsy.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://community.etsy.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://staging.claytonapp.com" target="_blank">https://staging.claytonapp.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://staging.claytonapp.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.hostgator.com.br" target="_blank">https://www.hostgator.com.br</a></td>
+                        <td>2024.11.0</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.hostgator.com.br//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.illamasqua.com" target="_blank">https://www.illamasqua.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 1/50 test IDs accessible. Sample accessible IDs: [1]</td>
+                        <td><a href="https://www.illamasqua.com/api/snapshots/shared/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.cloudvector.com" target="_blank">https://www.cloudvector.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.imperva.com | Open redirect to external domain: www.imperva.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.cloudvector.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.mdedge.com" target="_blank">https://www.mdedge.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.mdedge.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.mdedge.com" target="_blank">https://www.mdedge.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #ffc107; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">MEDIUM</span></td>
+                        <td><code>CVE-2021-39226</code></td>
+                        <td>Snapshot enumeration confirmed - 50/50 test IDs accessible. Sample accessible IDs: [1, 2, 3, 4, 5]</td>
+                        <td><a href="https://www.mdedge.com/dashboard/snapshot/50" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://accounts.webmd.com" target="_blank">https://accounts.webmd.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: member.webmd.com | Open redirect to external domain: member.webmd.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://accounts.webmd.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://powerpak.com" target="_blank">https://powerpak.com</a></td>
+                        <td>2024.11.0</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.powerpak.com | Open redirect to external domain: www.powerpak.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://powerpak.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><a href="https://www.globalacademycme.com" target="_blank">https://www.globalacademycme.com</a></td>
+                        <td>Unknown</td>
+                        <td><span style="background: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">CRITICAL</span></td>
+                        <td><code>CVE-2025-4123</code></td>
+                        <td>Open redirect to external domain: www.medscapelive.com | Open redirect to external domain: www.medscapelive.com | Open redirect via login redirect parameter</td>
+                        <td><a href="https://www.globalacademycme.com//api/snapshots" target="_blank" style="font-size: 11px;">Test URL</a></td>
+                    </tr>
+                    
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <p>Generated by JSON to HTML Report Converter | 2026-05-19 05:17:02</p>
+        </div>
+    </div>
+</body>
+</html>
