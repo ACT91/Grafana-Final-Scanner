@@ -491,7 +491,7 @@ class TestHTMLReportGeneration(unittest.TestCase):
 
         try:
             self.scanner._save_html_report(self.sample_results, temp_path)
-            with open(temp_path, 'r') as f:
+            with open(temp_path, 'r', encoding='utf-8') as f:
                 content = f.read()
             self.assertIn('<html', content)
             self.assertIn('CVE-2021-43798', content)
